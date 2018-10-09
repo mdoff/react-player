@@ -1,0 +1,9 @@
+.Track-Form {
+  max-width: 320px;
+  margin-bottom: 24px;
+}
+.Track-Form .Actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
