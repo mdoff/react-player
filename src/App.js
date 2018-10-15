@@ -13,8 +13,14 @@ export default class App extends React.Component {
   componentDidMount() {
     try {
       const playlist = JSON.parse(localStorage.getItem('playlist'));
-      this.setState({playlist});
+      if (playlist) {
+        this.setState({playlist});
+      }
+      else {
+        throw new Error('Failed to read localStorage')
+      }
     } catch (e) {
+      this.setState({playlist: []});
       console.log('localStorage parse failed');
     }
   }
@@ -90,7 +96,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    return <Provider value = {this.state}>
+    return <Provider value={this.state}>
       <div className="App">
         <div className="Player-Wrapper">
           <Player />
